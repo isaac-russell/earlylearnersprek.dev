@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h1>{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+										
+					{# if you have an advanced custom form label called "services"#}
+					{% if post.get_field('services') %}
+					{# then loop through the "residential" page otherwise known as "page-residential.twig" and start to get the fields from acf "services" #}	
+					{% for residential in post.get_field('services') %}
+					<h4>{{residential.title}}</h4>
+						{# This is how you get the images to display#}
+					<img src="{{TimberImage(residential.before_image).src|resize(200, 200)}}" />
+		            <img src="{{TimberImage(residential.after_image).src|resize(200, 200)}}" />
+		            {# This is how to get other fields to display first put the page/post then the field name#}
+		            <p>{{residential.testimonial}}</p>
+		            <p>{{residential.statement}}</p>
+		            <hr>
+		            {% endfor %}
+					{% endif %}	
+					
+						{# Outside of a loop this is an example of how you can access ACF:
+
+						First access the "post" (as a side note this is set up in index.php and post is typically used in posts and pages thus globally) then access the "get_field" then use the paramater you have set up in ACF #}
+					<p>{{ post.get_field('instant_quote_button') }}</p>
+
+		
+						
+				</div>		
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
