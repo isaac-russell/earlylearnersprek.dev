@@ -45,13 +45,11 @@ class StarterSite extends TimberSite {
 		$context['site'] = $this;
 		return $context;
 
-		// We want footer widgets on every page, so add it to the global context
+		// We want footer widgets on every page, so add it to the global context. Right? I'm starting to get stuck...
 	
 		$context['footer_one'] = Timber::get_sidebar('sidebar.php');
 
-		$context['footer_widgets'] = Timber::get_sidebar('sidebar.php');
-
-		return $context;
+			return $context;
 	}
 
 	function add_to_twig( $twig ) {

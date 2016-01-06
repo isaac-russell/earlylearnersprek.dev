@@ -1,14 +1,5 @@
 <?php
 
-	register_sidebar( array(
-            'name' => 'Home left sidebar',
-            'id' => 'home_left',
-            'before_widget' => '<div>',
-            'after_widget' => '</div>',
-            'before_title' => '<h2 class="rounded">',
-            'after_title' => '</h2>',
-        ) );
-
 	$args = array(
 		'id'            => 'footer-one',
 		'class'         => 'widget',
@@ -19,19 +10,6 @@
 	);
 	register_sidebar( $args );
 	
-	$args = array(
-		'id'            => 'footer-widget',
-		'class'         => 'widget',
-		'name'          => __( 'Footer far left', 'tba' ),
-		'description'   => __( 'A custom footer', 'tba' ),
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	);
-	register_sidebar( $args );
-
-
-
-
 	$args = array(
 		'id'            => 'footer-two',
 		'class'         => 'widget',
@@ -63,7 +41,7 @@
 	$args = array(
 		'id'            => 'rightside-widget',
 		'class'         => 'widget',
-		'name'          => __( 'rightside-widget', 'tba' ),
+		'name'          => __( 'Rightside widget', 'tba' ),
 		'description'   => __( 'A custom sidebar', 'tba' ),
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
